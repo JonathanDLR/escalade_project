@@ -204,7 +204,9 @@
 		    <artifactId>slf4j-log4j12</artifactId>
 		    <version>1.7.28</version>
 		    <scope>test</scope>
-		</dependency>		
+		</dependency>	
+		
+		
   	</dependencies>
   </dependencyManagement>
   

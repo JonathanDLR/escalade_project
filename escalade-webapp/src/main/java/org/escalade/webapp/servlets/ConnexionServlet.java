@@ -48,13 +48,13 @@ public class ConnexionServlet extends AbstractResource {
      * @return
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String connect(@Valid @ModelAttribute("userForm") User pUser, BindingResult br, 
+    public String connect(@ModelAttribute("userForm") User pUser, BindingResult br, 
     		HttpSession session, Model model) {
     	User user = getManagerFactory().getUserManager().getUserByLogin(pUser.getLogin());
     	String error = "Identifiant ou mot de passe incorect";
     	
     	// CHECK INFO BEFORE CREATING SESSION
-    	if (pUser.getLogin() == null) {
+    	if (pUser.getLogin() == "") {
     		br.rejectValue("login", "error.mailEmpty", "Veuillez renseigner votre mail.");
     		return "connexion";
     	} else if (!EmailValidator.getInstance().isValid(pUser.getLogin())) {
